@@ -1,0 +1,193 @@
+
+# Creating map Visualizations with `{ggplot2}` {#map}
+
+```{r mapinit, include=F}
+# http://hbiostat.org/rmsc/
+
+library(tidyverse)
+library(patchwork)
+library(sf)
+
+mark_color <- "grey25"
+color1x =  "#00519E" # uol color
+colorhex <- "#FCFCFC" #"#FCF9F0FF"7
+colorhex <- NA #"#FCF9F0FF"7
+
+theme_x <- 
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.background = element_rect(fill = colorhex, linetype = 1, colour = NA),
+    rect = element_rect(fill = colorhex, linetype = 1, colour = NA),
+    axis.text =  element_text(color = mark_color,face = "plain", size = rel(.75), angle = 0), 
+    axis.title = element_text(color = mark_color,face = "plain", size = rel(1), angle = 0), 
+    axis.title.y = element_text(color = mark_color,face = "plain", angle = 0,vjust = .5), 
+    axis.ticks = element_blank(),
+    axis.line = element_line(size = .1), 
+    panel.grid = element_line(colour = "grey81", linetype = 1, size = .15), 
+    panel.grid.minor.y = element_blank(), 
+    panel.grid.minor.x = element_blank(), 
+    plot.subtitle = element_text(hjust=0),
+    plot.caption = element_text(hjust=1, size = rel(1.2), color = mark_color),
+    plot.margin = unit(c(1, 1, 1, 1), "lines"))
+
+# theme_set(theme_x)
+
+```
+
+In addition to the classic graphics presented in [Chapter 5](#viz), there is a whole range of extensions available in `{ggplot2}`.
+
+
+For maps and spatial data work, the `{sf}` package is available and allows to plot "Choropleths" (thematic maps) with `{ggplot2}`.
+The great thing is: we can process `{sf}` data with the familiar `{tidyverse}` commands. 
+To create a map, we need a *shapefile* that contains information about the areas to be displayed. 
+For Germany, the [Geodata Center of the Federal Agency for Cartography and Geodesy](http://gdz.bkg.bund.de/) provides shapefiles for municipalities, districts, and states.
+
+::: {.callout-tip}
+## [Here](https://daten.gdz.bkg.bund.de/produkte/vg/vg250_ebenen_0101/) you can find shapefiles for different years.
+
+Usually, the results or data we want to display are based on a specific area status (due to territorial reforms, there are continuous changes in both areas and identifiers).
+To avoid complex record linkage, it is helpful to use the shapefile for the relevant year. 
+[On this page](https://daten.gdz.bkg.bund.de/produkte/vg/vg250_ebenen_0101/) you can also find past territorial statuses.
+The files with the name scheme **`vg250_01-01.utm32s.shape.ebenen.zip`** contain the necessary information that we will use in the following.
+
+:::
+
+We can then join these shapefiles with data based on the AGS ([Official Municipality Key](https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel)) and display them as a map:
+
+```{r map1}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 4
+dpath17 <- "D:/Datenspeicher/regstat/shapefiles/vg250_2017.utm32s.shape.ebenen/vg250_ebenen"
+kreis <- sf::read_sf(dpath17, layer="VG250_KRS")
+lan17 <- sf::read_sf(dpath17, layer="VG250_LAN")
+
+ggplot(kreis) + 
+    geom_sf(size = .1,aes(fill = as.numeric(AGS)))  +
+    scale_fill_viridis_c(option = "mako", name = "AGS") +
+    labs(title = "Districts by Area Status 2017") +
+    theme_minimal()
+```
+
+To load a shapefile, we first install `{sf}` and then load it with `library()`. 
+The actual loading is done by the `read_sf()` command, where we need to specify both the file path in the unpacked folder with the shapefiles and the `layer`, i.e., the level. 
+In the BKG shapefiles, there are the following layers:
+
++ `VG250_LAN`: Federal States (2-digit AGS)
++ `VG250_KRS`: Districts and Independent Cities (5-digit AGS)
++ `VG250_GEM`: Cities and Municipalities (8-digit AGS)
+
+So, if we want to load the federal states, we proceed as follows:
+```{r mapload}
+#| eval: false
+lan17 <- sf::read_sf("./orig/vg250_2017.utm32s.shape.ebenen/vg250_ebenen",
+                     layer="VG250_LAN")
+```
+
+The `lan17` object can now be used for a `ggplot()` command.
+`lan17` also contains the sea areas, which we can filter to land areas only using a `filter()` command (`GF` = 4):
+```{r mapplot}
+#| layout-ncol: 2
+#| fig-height: 6
+#| fig-width: 6
+ggplot(lan17) + 
+    geom_sf(size = .1)  +
+    labs(title = "Federal States by Area Status 2017") +
+    theme_void()
+
+ggplot(lan17 %>% filter(GF==4)) + 
+    geom_sf(size = .1)  +
+    labs(title = "Federal States by Area Status 2017") +
+    theme_void()
+```
+
+
+If we now want to color the federal states, for example, by the unemployment rate, we need to incorporate this data. 
+For simplicity, I will simulate the values here:
+
+```{r}
+alo_df <- 
+  data.frame(ags = unique(lan17$AGS),
+             alq = sample(seq(.03,.095,.001) ,size = 16,replace = T))
+head(alo_df)
+```
+
+
+```{r scrapetest}
+#| include: false
+library(rvest)
+bwle <- "https://de.wikipedia.org/wiki/Liste_der_deutschen_Bundesl%C3%A4nder_nach_Arbeitslosenquote"
+  a3 <- read_html(bwle) %>% html_table() %>% .[[3]] %>% data.frame()
+ax <- 
+  a3 %>% 
+    janitor::clean_names() %>% 
+    separate(land,into = c("name","name2","name3"), sep = "[[:punct:]]+") %>% 
+    mutate(name = ifelse(is.na(name3),name, glue::glue("{name}-{name3}"))
+           )
+
+
+strsplit(ax$name, split="[^[:alnum:]]+") %>% unlist()
+  
+  ax$name %>% 
+  stringi::stri_trans_general(.,"latin-ascii") %>% 
+  strsplit(., split="[^A-Za-z0-9 -]+") %>% unlist()
+
+   unlist(strsplit(ax$name, split="\\w+"))
+   
+   stringi::stri_trans_nfc("Käse")
+stringi::stri_trans_general(c("äöüø"),"latin-ascii")
+
+data.frame()
+```
+
+We can now join the `alo_df` data to the `lan17` shapefile using a [`left_join()`](#join).
+```{r}
+#| eval: false
+lan17 %>% filter(GF==4) %>% left_join(alo_df,by = join_by("AGS"=="ags"))
+```
+
+```{r}
+lan17 %>% filter(GF==4) %>% left_join(alo_df,by = join_by("AGS"=="ags")) %>% 
+  select(AGS,GEN,alq) %>% 
+  head()
+```
+
+The syntax for the actual plot is then similar to any other `ggplot()` - with `fill =` we can specify a fill color and with `scale_fill_...` we can choose a color palette:
+```{r mapplot2}
+#| fig-height: 4
+#| fig-width: 5
+library(scico)
+lan17 %>% 
+  filter(GF==4) %>% 
+  left_join(alo_df,by = join_by("AGS"=="ags")) %>% 
+  ggplot() + 
+      geom_sf(size = .1, aes(fill = alq))  +
+      labs(title = "Unemployment Rate for Federal States",
+           subtitle = "(not real data)",
+           fill = "Unemployment\nrate") +
+      scale_fill_scico(palette = "oslo") + # requires scico package
+      theme_void()
+```
+
+## Modify sf shape data.frames
+
+We can use the familiar `{dplyr}` functions to amend the sf data.
+Here's are rather silly example how to combine Saxony, Saxony-Anhalt and Thuringa into one unit:
+```{r}
+lan17_15länder <- 
+  lan17 %>% 
+  filter(GF==4) %>%
+  mutate(newid = case_when(as.numeric(AGS)>13 ~ "17",  TRUE ~ AGS)) %>% # same ID for SN, SA, TH
+  summarise(geometry = st_union(geometry),.by = newid) # summarise -> combine based on newid
+  
+ggplot(lan17_15länder) + 
+  geom_sf(size = .1, aes(fill = as.numeric(newid)) )  +
+  scale_fill_scico(palette = "oslo") + # requires scico package
+  theme_minimal()
+```
+
+## Exercise
+
+Create a map yourself - for the country, district, or municipality level.
+
++ You can find the shapefile for the year 2017 in the course folder under `/orig` in the Quickablage.

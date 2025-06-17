@@ -1,0 +1,30 @@
+# Welcome! {#index .unnumbered}
+
+```{r indx, include=F}
+if(Sys.getenv("USERNAME") == "filse" ) .libPaths("D:/R-library4") 
+library(kableExtra)
+library(tidyverse)
+```
+
+Introduction to R for GradAB and IAB people.
+
+<!-- ![](./pic/00_frontpage_iab2.png){width="490"} -->
+
+
+```{r main, echo = F, out.height="70%",out.width="70%", fig.align="center"}
+knitr::include_graphics("./pic/01_frontpage_iab2.png")
+```
+
+
+## Course dates {.unnumbered}
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+
+{{< fa location-dot >}} &nbsp; E09
+
+{{< fa calendar-alt >}} &nbsp; 24.06.2025 &nbsp; {{< fa clock >}} &nbsp; 9:00 – 15:30  
+
+{{< fa calendar-alt >}} &nbsp; 27.06.2025 &nbsp; {{< fa clock >}} &nbsp; 9:00 – 15:30 
+
+
+:::

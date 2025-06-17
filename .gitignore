@@ -1,0 +1,17 @@
+.Rproj.user
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto
+
+/.quarto/
+
+00*
+/data/
+/orig/
+/_archive/
+/tidyexplain/
+/exam/
+
+*pptx
