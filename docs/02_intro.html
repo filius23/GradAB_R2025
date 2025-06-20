@@ -1917,6 +1917,7 @@ Levels: Uni Oldenburg Uni Bremen Uni Vechta</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Default package library<span class="sc">:</span>             Z<span class="sc">:</span><span class="er">/</span>R<span class="sc">/</span><span class="dv">4-4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>You can check the directory where your library is kept using <code>.libPaths()</code> - R will install new packages in the first directory listed here.</p>
 <p>This has the disadvantage that you might overwrite packages when working on different projects. In the worst case, you could break code from older projects when updating to a newer version of a package. You’ll have to track down the original package version when you’re trying to re-run code from the older project.</p>
 <p>⚠️ This can be extremely painful and make you question what life decisions brought you here.</p>
 <p>Therefore, I recommend setting up a <strong>project-specific</strong> <code>.RProfile</code> for projects that require reprodicibility:</p>

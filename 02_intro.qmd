@@ -589,6 +589,8 @@ By default, the `.Rprofile` stores all packages installed via `fdz_install()` in
 - Default package library:             Z:/R/4-4
 ```
 
+You can check the directory where your library is kept using `.libPaths()` - R will install new packages in the first directory listed here.
+
 This has the disadvantage that you might overwrite packages when working on different projects.
 In the worst case, you could break code from older projects when updating to a newer version of a package.
 You'll have to track down the original package version when you're trying to re-run code from the older project.  
