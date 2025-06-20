@@ -1,6 +1,7 @@
 # Working with Datasets
 
-```{r setup02, include=F}
+```{r setup02}
+#| include: false
 library(rmarkdown)
 if (Sys.getenv("USERNAME") == "filse") path <- "D:/oCloud/RFS/"
 library(tidyverse)
@@ -246,7 +247,7 @@ We use the `{dplyr}` package[^04_intro-1].
 
 ## Packages in R {#packages}
 
-Packages are extensions for R that include additional functions. <!-- We have already seen some examples in this chapter: with `{dplyr}` we have a more convenient [`filter()`](#filter) and can read and create Stata or SPSS files using the `haven` package. --> 
+Packages are extensions for R that include additional functions, some might be familiar with Stata's ado files.
 Packages need to be installed once and then loaded before use in a new session (i.e., after every restart of R/RStudio). `install.packages()` performs the installation, and `library()` loads the packages:
 
 ```{r, eval=F}
@@ -263,33 +264,47 @@ With `install.packages()` we essentially screw in the light bulb in R, with `lib
 knitr::include_graphics("./pic/104_install-packages.jpg")
 ```
 
+### `install.packages()` on the IAB Servers {#fdz_install}
+
 :::{.callout-caution}
-## `install.packages()` in the IAB Network {#fdz_install}
 
-Packages in R are typically installed from [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html). This is not possible on the servers at IAB due to isolation from the internet. This restricts package installation in R to the collection maintained by DIM under `N:/Ablagen/D01700-Allgemein/R/bin/windows/contrib/`.
+R Packages are typically installed from [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html).
+However, this is not possible on the servers at IAB due to isolation from the internet.
+As a result, package installation is restricted on IAB servers to the collection maintained by DIM at `N:/Ablagen/D01700-Allgemein/R/bin/windows/contrib/`.
 
-A central challenge in installing from local zip files is handling *dependencies*: packages that the desired package relies on. When installing from the internet, dependencies are automatically installed, but with a local installation, this is not the case.
+A central challenge in installing from local zip files is handling *dependencies*: packages that the desired package relies on.
+When installing from the internet, dependencies are automatically installed, but with a local installation, this is not the case.
 
 At IAB, some workarounds exist, and currently, I have a solution in progress at FDZ based on a `.Rprofile` file that provides the `fdz_install()` command, which behaves like the standard `install.packages()` command (or should, at least).
 
-The most recent version of the `.Rprofile` file can be found under `N:\Ablagen\D01700-Quickablage\Filser\R_2024\prog`.
-
-Place the `.Rprofile` file in `C:\Users\*YOUR_USERNAME*\Documents` and restart R (`CTRL + F10`), you should then see a similar message in the console:
+The most recent version of the `.Rprofile` file can be found under `N:\Ablagen\D01700-Quickablage\Filser\2025-06_Rprofile.R`. Place the `.Rprofile` file in `C:\Users\*YOUR_USERNAME*\Documents` and restart R (`CTRL + F10`), you should then see a similar message in the console:
 ```{r, eval = F}
 ----------------------------------------
 IAB-FDZ .Rprofile
-Version 0.5
+Version 0.6
 ----------------------------------------
-- Local repository: N:/Ablagen/D01700-Allgemein/R/bin/windows/contrib/4.2
-- Working directory: N:/Ablagen/D01700-FDZ/Quickablage/AndreasF/R-Kurs
- 
-- Default package library: C:/Users/FilserA001.IAB/AppData/Local/R/win-library/4.2
-- HOME directory: C:/Users/FilserA001.IAB/Documents
-- R_home directory: C:/PROGRA~1/R/R-4.2.1
+- Working directory:                   Z:/Eigene Dateien
+- Default package library:             Z:/R/4-4
+- HOME directory:                      C:\Users\FilserA001.IAB\Documents
+- R_home directory:                    C:/PROGRA~1/R/R-4.4.0
 ----------------------------------------
 ```
 
-[**More about RProfile**](https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf)
+To make matters more comfortable, you can run this code once to copy the .Rprofile from my Quickablage into your Documents folder on the server you're working on:
+```{r, eval = F}
+file.copy(from = "N:/Ablagen/D01700-Quickablage/Filser/2025-06_Rprofile.R",
+          to   = paste0(
+                    dir(path = "C:/Users/",
+                        pattern = Sys.getenv("USERNAME"), # find correct User-Folder on C:
+                        full.names = T),
+                    "/Documents/.Rprofile"
+                    )
+          )
+```
+
+[**How to use Rproj to ensure reproducibilty**](#reproducibility)
+
+<!-- [More about RProfile](https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf) -->
 
 :::
 
@@ -329,7 +344,7 @@ fdz_install("tidyverse") # on IAB servers with .Rprofile
 ```
 the following packages are installed:
 
-`r tidyverse::tidyverse_packages() %>% paste(.,collapse=", ")`
+`r tidyverse::tidyverse_packages() |> paste(collapse=", ")`
 
 We will get to know some of them during the course. The initially most important one is `{dplyr}`, which makes selecting cases and variables easier:
 
@@ -561,6 +576,68 @@ rstudioapi::openProject(path = "D:/Courses/R-Course")
 ```{r,echo = F, out.height="55%",out.width="65%", fig.align="center"}
 # knitr::include_graphics("./pic/102_file_path_new.png")
 ```
+
+
+### `r emoji::emoji_name["bulb"]` Using projects to ensure reproducibility {#reproducibility}
+
+R-Projects are a great way to organize your work and help to ensure reproducibility in conjunction with the [FDZ `.Rprofile`](#fdz_install):
+
+By default, the `.Rprofile` stores all packages installed via `fdz_install()` in your personal Documents folder on `Z:`, as you can see in the startup message in the path displayed as **Default package library:**
+
+```{r}
+#| eval: false
+- Default package library:             Z:/R/4-4
+```
+
+This has the disadvantage that you might overwrite packages when working on different projects.
+In the worst case, you could break code from older projects when updating to a newer version of a package.
+You'll have to track down the original package version when you're trying to re-run code from the older project.  
+
+⚠️ This can be extremely painful and make you question what life decisions brought you here. ⚠️
+
+Therefore, I recommend setting up a **project-specific** `.RProfile` for projects that require reprodicibility:  
+
+`r emoji::emoji_name["keycap_1"]` Copy the `.Rprofile` to your project root directory  
+
+```{r, eval = F}
+file.copy(from = paste0(
+                    dir(path = "C:/Users/",
+                        pattern = Sys.getenv("USERNAME"), # find correct User-Folder on C:
+                        full.names = T),
+                    "/Documents/.Rprofile"
+                    ),
+          to = "."
+          )
+```
+
+`r emoji::emoji_name["keycap_2"]`️ amend the first few lines so that packages are loaded and installed from within the project folder by modifying lines 11-19:
+
+```{r}
+#| eval: false
+libdir <- 
+  paste0(
+    "Z:/R/",         # redirects library/fdz_install to Z:/R/
+    R.version$major, # major Version
+    "-",
+    sub(R.version$minor, pattern = "\\..+", replacement = "") # minor version
+  )
+```
+For instance, you could set a relative path to a subdirectory called "library" in your project:
+```{r}
+#| eval: false
+#| lst-label: lst-code
+libdir <- 
+  paste0(
+    "./library/",    # adjust path here
+    R.version$major, # major Version
+    "-",
+    sub(R.version$minor, pattern = "\\..+", replacement = "") # minor version
+  )
+```
+
+This will result in your packages being stored in `path/to/your/project/library/RX-Y` with X-Y being the R version.
+The downside of this approach is that you'll need to (re-)install the packages you're using for your project, and storing identical packages in multiple directories can be inefficient in terms of memory usage.
+
 
 ## Importing datasets {#import}
 

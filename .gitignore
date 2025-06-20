@@ -4,9 +4,7 @@
 .httr-oauth
 .DS_Store
 .quarto
-
 /.quarto/
-
 00*
 /data/
 /orig/
@@ -17,5 +15,5 @@
 **/*cache/
 /*cache/
 /collage/
-
 *pptx
+2025-06_Rprofile.R
