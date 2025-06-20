@@ -20,11 +20,9 @@ knitr::include_graphics("./pic/01_frontpage_iab2.png")
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
 
-{{< fa location-dot >}} &nbsp; E09
+{{< fa calendar-alt >}} &nbsp; 24.06.2025 &nbsp; {{< fa clock >}} &nbsp; 9:00 – 15:30  {{< fa location-dot >}} &nbsp; 414
 
-{{< fa calendar-alt >}} &nbsp; 24.06.2025 &nbsp; {{< fa clock >}} &nbsp; 9:00 – 15:30  
-
-{{< fa calendar-alt >}} &nbsp; 27.06.2025 &nbsp; {{< fa clock >}} &nbsp; 9:00 – 15:30 
+{{< fa calendar-alt >}} &nbsp; 27.06.2025 &nbsp; {{< fa clock >}} &nbsp; 9:00 – 15:30  {{< fa location-dot >}} &nbsp; E09
 
 
 :::

@@ -6,7 +6,7 @@ project:
   # output-file: pdf_doc
   # 
 book:
-  title: "GradAB R Intro 2024"
+  title: "IAB R Crash Course 2025"
   author: "Andreas Filser"
   date: last-modified
   chapters:
