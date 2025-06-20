@@ -264,7 +264,7 @@ With `install.packages()` we essentially screw in the light bulb in R, with `lib
 knitr::include_graphics("./pic/104_install-packages.jpg")
 ```
 
-### `install.packages()` on the IAB Servers {#fdz_install}
+### R packages on IAB Servers {#fdz_install}
 
 :::{.callout-caution}
 
