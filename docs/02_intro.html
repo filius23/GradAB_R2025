@@ -243,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#selecting-rows-columns" id="toc-selecting-rows-columns" class="nav-link" data-scroll-target="#selecting-rows-columns"><span class="header-section-number">2.3</span> Selecting Rows &amp; Columns</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages"><span class="header-section-number">2.4</span> Packages in R</a>
   <ul class="collapse">
-  <li><a href="#fdz_install" id="toc-fdz_install" class="nav-link" data-scroll-target="#fdz_install"><span class="header-section-number">2.4.1</span> <code>install.packages()</code> on the IAB Servers</a></li>
+  <li><a href="#fdz_install" id="toc-fdz_install" class="nav-link" data-scroll-target="#fdz_install"><span class="header-section-number">2.4.1</span> R packages on IAB Servers</a></li>
   </ul></li>
   <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse"><span class="header-section-number">2.5</span> <code>{tidyverse}</code></a>
   <ul class="collapse">
@@ -257,7 +257,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#ue_3" id="toc-ue_3" class="nav-link" data-scroll-target="#ue_3"><span class="header-section-number">2.6.1</span> Exercise</a></li>
   </ul></li>
-  <li><a href="#rproj" id="toc-rproj" class="nav-link" data-scroll-target="#rproj"><span class="header-section-number">2.7</span> Setting up a project</a></li>
+  <li><a href="#rproj" id="toc-rproj" class="nav-link" data-scroll-target="#rproj"><span class="header-section-number">2.7</span> Setting up a project</a>
+  <ul class="collapse">
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">2.7.1</span> 💡 Using projects to ensure reproducibility</a></li>
+  </ul></li>
   <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import"><span class="header-section-number">2.8</span> Importing datasets</a>
   <ul class="collapse">
   <li><a href="#the-import-command" id="toc-the-import-command" class="nav-link" data-scroll-target="#the-import-command"><span class="header-section-number">2.8.1</span> The import command</a></li>
@@ -447,23 +450,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The following variable types in R are important for us:<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="ggufvmupwy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ggufvmupwy table {
+<div id="znqlliunow" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#znqlliunow table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ggufvmupwy thead, #ggufvmupwy tbody, #ggufvmupwy tfoot, #ggufvmupwy tr, #ggufvmupwy td, #ggufvmupwy th {
+#znqlliunow thead, #znqlliunow tbody, #znqlliunow tfoot, #znqlliunow tr, #znqlliunow td, #znqlliunow th {
   border-style: none;
 }
 
-#ggufvmupwy p {
+#znqlliunow p {
   margin: 0;
   padding: 0;
 }
 
-#ggufvmupwy .gt_table {
+#znqlliunow .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -489,12 +492,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_caption {
+#znqlliunow .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ggufvmupwy .gt_title {
+#znqlliunow .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -506,7 +509,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#ggufvmupwy .gt_subtitle {
+#znqlliunow .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -518,7 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#ggufvmupwy .gt_heading {
+#znqlliunow .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -530,13 +533,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_bottom_border {
+#znqlliunow .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_col_headings {
+#znqlliunow .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -551,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_col_heading {
+#znqlliunow .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -571,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ggufvmupwy .gt_column_spanner_outer {
+#znqlliunow .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -583,15 +586,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#ggufvmupwy .gt_column_spanner_outer:first-child {
+#znqlliunow .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ggufvmupwy .gt_column_spanner_outer:last-child {
+#znqlliunow .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ggufvmupwy .gt_column_spanner {
+#znqlliunow .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -603,11 +606,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#ggufvmupwy .gt_spanner_row {
+#znqlliunow .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ggufvmupwy .gt_group_heading {
+#znqlliunow .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -633,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#ggufvmupwy .gt_empty_group_heading {
+#znqlliunow .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -648,15 +651,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#ggufvmupwy .gt_from_md > :first-child {
+#znqlliunow .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ggufvmupwy .gt_from_md > :last-child {
+#znqlliunow .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ggufvmupwy .gt_row {
+#znqlliunow .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -675,7 +678,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ggufvmupwy .gt_stub {
+#znqlliunow .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -688,7 +691,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ggufvmupwy .gt_stub_row_group {
+#znqlliunow .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -702,15 +705,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#ggufvmupwy .gt_row_group_first td {
+#znqlliunow .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ggufvmupwy .gt_row_group_first th {
+#znqlliunow .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ggufvmupwy .gt_summary_row {
+#znqlliunow .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -720,16 +723,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ggufvmupwy .gt_first_summary_row {
+#znqlliunow .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_first_summary_row.thick {
+#znqlliunow .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ggufvmupwy .gt_last_summary_row {
+#znqlliunow .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -739,7 +742,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_grand_summary_row {
+#znqlliunow .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -749,7 +752,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ggufvmupwy .gt_first_grand_summary_row {
+#znqlliunow .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -759,7 +762,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_last_grand_summary_row_top {
+#znqlliunow .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -769,11 +772,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_striped {
+#znqlliunow .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ggufvmupwy .gt_table_body {
+#znqlliunow .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -782,7 +785,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_footnotes {
+#znqlliunow .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -796,7 +799,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_footnote {
+#znqlliunow .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -805,7 +808,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ggufvmupwy .gt_sourcenotes {
+#znqlliunow .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -819,7 +822,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ggufvmupwy .gt_sourcenote {
+#znqlliunow .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -827,72 +830,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ggufvmupwy .gt_left {
+#znqlliunow .gt_left {
   text-align: left;
 }
 
-#ggufvmupwy .gt_center {
+#znqlliunow .gt_center {
   text-align: center;
 }
 
-#ggufvmupwy .gt_right {
+#znqlliunow .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ggufvmupwy .gt_font_normal {
+#znqlliunow .gt_font_normal {
   font-weight: normal;
 }
 
-#ggufvmupwy .gt_font_bold {
+#znqlliunow .gt_font_bold {
   font-weight: bold;
 }
 
-#ggufvmupwy .gt_font_italic {
+#znqlliunow .gt_font_italic {
   font-style: italic;
 }
 
-#ggufvmupwy .gt_super {
+#znqlliunow .gt_super {
   font-size: 65%;
 }
 
-#ggufvmupwy .gt_footnote_marks {
+#znqlliunow .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ggufvmupwy .gt_asterisk {
+#znqlliunow .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ggufvmupwy .gt_indent_1 {
+#znqlliunow .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ggufvmupwy .gt_indent_2 {
+#znqlliunow .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ggufvmupwy .gt_indent_3 {
+#znqlliunow .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ggufvmupwy .gt_indent_4 {
+#znqlliunow .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ggufvmupwy .gt_indent_5 {
+#znqlliunow .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ggufvmupwy .katex-display {
+#znqlliunow .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ggufvmupwy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#znqlliunow div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -930,23 +933,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell-output-display">
-<div id="peomaekmja" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#peomaekmja table {
+<div id="tpryrfshzb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tpryrfshzb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#peomaekmja thead, #peomaekmja tbody, #peomaekmja tfoot, #peomaekmja tr, #peomaekmja td, #peomaekmja th {
+#tpryrfshzb thead, #tpryrfshzb tbody, #tpryrfshzb tfoot, #tpryrfshzb tr, #tpryrfshzb td, #tpryrfshzb th {
   border-style: none;
 }
 
-#peomaekmja p {
+#tpryrfshzb p {
   margin: 0;
   padding: 0;
 }
 
-#peomaekmja .gt_table {
+#tpryrfshzb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -972,12 +975,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#peomaekmja .gt_caption {
+#tpryrfshzb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#peomaekmja .gt_title {
+#tpryrfshzb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -989,7 +992,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#peomaekmja .gt_subtitle {
+#tpryrfshzb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1001,7 +1004,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#peomaekmja .gt_heading {
+#tpryrfshzb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1013,13 +1016,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#peomaekmja .gt_bottom_border {
+#tpryrfshzb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#peomaekmja .gt_col_headings {
+#tpryrfshzb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1034,7 +1037,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#peomaekmja .gt_col_heading {
+#tpryrfshzb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1054,7 +1057,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#peomaekmja .gt_column_spanner_outer {
+#tpryrfshzb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1066,15 +1069,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#peomaekmja .gt_column_spanner_outer:first-child {
+#tpryrfshzb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#peomaekmja .gt_column_spanner_outer:last-child {
+#tpryrfshzb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#peomaekmja .gt_column_spanner {
+#tpryrfshzb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1086,11 +1089,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#peomaekmja .gt_spanner_row {
+#tpryrfshzb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#peomaekmja .gt_group_heading {
+#tpryrfshzb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1116,7 +1119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#peomaekmja .gt_empty_group_heading {
+#tpryrfshzb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1131,15 +1134,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#peomaekmja .gt_from_md > :first-child {
+#tpryrfshzb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#peomaekmja .gt_from_md > :last-child {
+#tpryrfshzb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#peomaekmja .gt_row {
+#tpryrfshzb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1158,7 +1161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#peomaekmja .gt_stub {
+#tpryrfshzb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1171,7 +1174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#peomaekmja .gt_stub_row_group {
+#tpryrfshzb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1185,15 +1188,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#peomaekmja .gt_row_group_first td {
+#tpryrfshzb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#peomaekmja .gt_row_group_first th {
+#tpryrfshzb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#peomaekmja .gt_summary_row {
+#tpryrfshzb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1203,16 +1206,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#peomaekmja .gt_first_summary_row {
+#tpryrfshzb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#peomaekmja .gt_first_summary_row.thick {
+#tpryrfshzb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#peomaekmja .gt_last_summary_row {
+#tpryrfshzb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1222,7 +1225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#peomaekmja .gt_grand_summary_row {
+#tpryrfshzb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1232,7 +1235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#peomaekmja .gt_first_grand_summary_row {
+#tpryrfshzb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1242,7 +1245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#peomaekmja .gt_last_grand_summary_row_top {
+#tpryrfshzb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1252,11 +1255,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#peomaekmja .gt_striped {
+#tpryrfshzb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#peomaekmja .gt_table_body {
+#tpryrfshzb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1265,7 +1268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#peomaekmja .gt_footnotes {
+#tpryrfshzb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1279,7 +1282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#peomaekmja .gt_footnote {
+#tpryrfshzb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1288,7 +1291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#peomaekmja .gt_sourcenotes {
+#tpryrfshzb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1302,7 +1305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#peomaekmja .gt_sourcenote {
+#tpryrfshzb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1310,72 +1313,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#peomaekmja .gt_left {
+#tpryrfshzb .gt_left {
   text-align: left;
 }
 
-#peomaekmja .gt_center {
+#tpryrfshzb .gt_center {
   text-align: center;
 }
 
-#peomaekmja .gt_right {
+#tpryrfshzb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#peomaekmja .gt_font_normal {
+#tpryrfshzb .gt_font_normal {
   font-weight: normal;
 }
 
-#peomaekmja .gt_font_bold {
+#tpryrfshzb .gt_font_bold {
   font-weight: bold;
 }
 
-#peomaekmja .gt_font_italic {
+#tpryrfshzb .gt_font_italic {
   font-style: italic;
 }
 
-#peomaekmja .gt_super {
+#tpryrfshzb .gt_super {
   font-size: 65%;
 }
 
-#peomaekmja .gt_footnote_marks {
+#tpryrfshzb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#peomaekmja .gt_asterisk {
+#tpryrfshzb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#peomaekmja .gt_indent_1 {
+#tpryrfshzb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#peomaekmja .gt_indent_2 {
+#tpryrfshzb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#peomaekmja .gt_indent_3 {
+#tpryrfshzb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#peomaekmja .gt_indent_4 {
+#tpryrfshzb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#peomaekmja .gt_indent_5 {
+#tpryrfshzb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#peomaekmja .katex-display {
+#tpryrfshzb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#peomaekmja div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tpryrfshzb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1516,7 +1519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <section id="fdz_install" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="fdz_install"><span class="header-section-number">2.4.1</span> <code>install.packages()</code> on the IAB Servers</h3>
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="fdz_install"><span class="header-section-number">2.4.1</span> R packages on IAB Servers</h3>
 <div class="callout callout-style-simple callout-caution">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1549,7 +1552,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>                    )</span>
 <span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf"><strong>More about RProfile</strong></a></p>
+<p><a href="#reproducibility"><strong>How to use Rproj to ensure reproducibilty</strong></a></p>
+<!-- [More about RProfile](https://support.posit.co/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf) -->
 </div>
 </div>
 </div>
@@ -1906,15 +1910,49 @@ Levels: Uni Oldenburg Uni Bremen Uni Vechta</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>rstudioapi<span class="sc">::</span><span class="fu">openProject</span>(<span class="at">path =</span> <span class="st">"D:/Courses/R-Course"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="{..callout-tip}">
-<p>R-Projects are a great way to maintain your projects and also can help to ensure reproducibility in conjunction with the <a href="#fdz_install">FDZ <code>.Rprofile</code></a>:</p>
+<section id="reproducibility" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">2.7.1</span> 💡 Using projects to ensure reproducibility</h3>
+<p>R-Projects are a great way to organize your work and help to ensure reproducibility in conjunction with the <a href="#fdz_install">FDZ <code>.Rprofile</code></a>:</p>
 <p>By default, the <code>.Rprofile</code> stores all packages installed via <code>fdz_install()</code> in your personal Documents folder on <code>Z:</code>, as you can see in the startup message in the path displayed as <strong>Default package library:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Default package library<span class="sc">:</span>             Z<span class="sc">:</span><span class="er">/</span>R<span class="sc">/</span><span class="dv">4-4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This has the disadvantage that you might overwrite packages when working on different projects. In the worst case, you’re break code from older projects when updating to a newer version of a package. You’ll have to track down the original package version when you’re trying to re-run code from the older project. ⚠️ This can be extremely painful and make you question what life decisions brought you here. ⚠️</p>
-<p>Therefore, I recommend setting up a **project-specific* RProfile for projects that require reprodicibility: 1️⃣ copy the <code>.Rprofile</code> to your project-root-directory 2️⃣ amend the first few lines so that packages are loaded and installed from within the project folder by changing lines 11-19</p>
+<p>This has the disadvantage that you might overwrite packages when working on different projects. In the worst case, you could break code from older projects when updating to a newer version of a package. You’ll have to track down the original package version when you’re trying to re-run code from the older project.</p>
+<p>⚠️ This can be extremely painful and make you question what life decisions brought you here.</p>
+<p>Therefore, I recommend setting up a <strong>project-specific</strong> <code>.RProfile</code> for projects that require reprodicibility:</p>
+<p>1️⃣ Copy the <code>.Rprofile</code> to your project root directory</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="at">from =</span> <span class="fu">paste0</span>(</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">dir</span>(<span class="at">path =</span> <span class="st">"C:/Users/"</span>,</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">pattern =</span> <span class="fu">Sys.getenv</span>(<span class="st">"USERNAME"</span>), <span class="co"># find correct User-Folder on C:</span></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">full.names =</span> T),</span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"/Documents/.Rprofile"</span></span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>                    ),</span>
+<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">to =</span> <span class="st">"."</span></span>
+<span id="cb93-8"><a href="#cb93-8" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>2️⃣️ amend the first few lines so that packages are loaded and installed from within the project folder by modifying lines 11-19:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>libdir <span class="ot">&lt;-</span> </span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Z:/R/"</span>,         <span class="co"># redirects library/fdz_install to Z:/R/</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>    R.version<span class="sc">$</span>major, <span class="co"># major Version</span></span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"-"</span>,</span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sub</span>(R.version<span class="sc">$</span>minor, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">..+"</span>, <span class="at">replacement =</span> <span class="st">""</span>) <span class="co"># minor version</span></span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For instance, you could set a relative path to a subdirectory called “library” in your project:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="lst-code"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="lst-code-1"><a href="#lst-code-1" aria-hidden="true" tabindex="-1"></a>libdir <span class="ot">&lt;-</span> </span>
+<span id="lst-code-2"><a href="#lst-code-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(</span>
+<span id="lst-code-3"><a href="#lst-code-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"./library/"</span>,    <span class="co"># adjust path here</span></span>
+<span id="lst-code-4"><a href="#lst-code-4" aria-hidden="true" tabindex="-1"></a>    R.version<span class="sc">$</span>major, <span class="co"># major Version</span></span>
+<span id="lst-code-5"><a href="#lst-code-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"-"</span>,</span>
+<span id="lst-code-6"><a href="#lst-code-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sub</span>(R.version<span class="sc">$</span>minor, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">..+"</span>, <span class="at">replacement =</span> <span class="st">""</span>) <span class="co"># minor version</span></span>
+<span id="lst-code-7"><a href="#lst-code-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will result in your packages being stored in <code>path/to/your/project/library/RX-Y</code> with X-Y being the R version. The downside of this approach is that you’ll need to (re-)install the packages you’re using for your project, and storing identical packages in multiple directories can be inefficient in terms of memory usage.</p>
+</section>
 </section>
 <section id="import" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="import"><span class="header-section-number">2.8</span> Importing datasets</h2>
@@ -1936,8 +1974,8 @@ Levels: Uni Oldenburg Uni Bremen Uni Vechta</code></pre>
 <h3 data-number="2.8.1" class="anchored" data-anchor-id="the-import-command"><span class="header-section-number">2.8.1</span> The import command</h3>
 <p>Now we can use the actual import command <code>read.table</code>. For the path, we can just enter the quotation marks after <code>file =</code> and press the Tab key. Then we’ll see all subdirectories and tables in the project folder.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>pend <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"./orig/PENDDAT_cf_W13.dta"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>pend <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"./orig/PENDDAT_cf_W13.dta"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The import process consists of two parts: first, we specify the object name as <code>pend</code>, under which R will store the dataset. After the <code>&lt;-</code> is the actual <code>read_dta()</code> command, which contains several options. First, we specify the exact dataset name, including the file extension.</p>
 <div class="callout callout-style-simple callout-important callout-titled">
@@ -1958,7 +1996,7 @@ R has problems with Windows-style <code>\</code> in file paths
 </div>
 <p>The object created is a <code>data.frame</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(pend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(pend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
 </div>
@@ -1966,7 +2004,7 @@ R has problems with Windows-style <code>\</code> in file paths
 <p>Technically, it’s a <code>tibble</code>—an enhanced version of <code>data.frame</code> in the <code>tidyverse</code> that includes labels and provides additional information in its display, such as variable classes in the first row.</p>
 <p>If we were to simply type <code>pend</code> here, the entire dataset would be displayed. For an overview, we can use <code>head</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 123
          pnr      hnr welle   pintjahr pintmon pintmod  zpsex   palter PD0400   
@@ -1988,29 +2026,29 @@ R has problems with Windows-style <code>\</code> in file paths
 </div>
 <p>With <code>nrow</code> and <code>ncol</code>, we can check if it worked. The dataset should have 28424 rows and 123 columns:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(pend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(pend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 28424</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(pend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(pend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 123</code></pre>
 </div>
 </div>
 <p>Of course, we can also select rows and columns from this much larger dataset as we did before. For example, we can select the data from 2006 and store it under <code>pend06</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>pend06 <span class="ot">&lt;-</span> pend <span class="sc">%&gt;%</span> <span class="fu">filter</span>(pintjahr <span class="sc">==</span> <span class="dv">2006</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>pend06 <span class="ot">&lt;-</span> pend <span class="sc">%&gt;%</span> <span class="fu">filter</span>(pintjahr <span class="sc">==</span> <span class="dv">2006</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Naturally, <code>pend06</code> has significantly fewer rows than <code>pend</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(pend06)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(pend06)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 168</code></pre>
 </div>
 </div>
 <p>If we want to see the exact ages of the respondents from <code>pend06</code>, we can call up the corresponding column with <code>pend06$palter</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>pend06<span class="sc">$</span>palter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>pend06<span class="sc">$</span>palter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;labelled&lt;double&gt;[168]&gt;: Age (W1: gen. from P1; W2 ff.: best info.), gen.
   [1] 71 66 64 64 63 51 64 65 26 38 41 63 58 58 69 45 59 37 28 63 56 29 29 49 47
@@ -2058,15 +2096,15 @@ Labels:
 </div>
 <p>The proprietary format in R for exporting <code>data.frame</code>s and reloading afterwards is <code>.RData</code> (comparable to <code>dta</code> in Stata):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(pend06, <span class="at">file =</span> <span class="st">"./data/pend06.RData"</span>)</span>
-<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(pend06) <span class="co"># delete pend06 from memory</span></span>
-<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>pend06_neu <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"./data/pend06.RData"</span>)</span>
-<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pend06) <span class="co"># does not exist anymore -&gt; rm()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(pend06, <span class="at">file =</span> <span class="st">"./data/pend06.RData"</span>)</span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(pend06) <span class="co"># delete pend06 from memory</span></span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>pend06_neu <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"./data/pend06.RData"</span>)</span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pend06) <span class="co"># does not exist anymore -&gt; rm()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: Objekt 'pend06' nicht gefunden</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pend06_neu,<span class="at">n=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pend06_neu,<span class="at">n=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 123
          pnr      hnr welle   pintjahr pintmon  pintmod zpsex   palter PD0400   
@@ -2083,21 +2121,21 @@ Labels:
 </div>
 <p>We can also export and restore other objects. However, we need to <code>load()</code> them, which will result in restoring the previous object name:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(studs, <span class="at">file =</span> <span class="st">"./data/stud_vektor.RData"</span>)</span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(studs)</span>
-<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>studs</span>
-<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"./data/stud_vektor.RData"</span>) <span class="co"># studs is back with the same object name</span></span>
-<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a>studs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(studs, <span class="at">file =</span> <span class="st">"./data/stud_vektor.RData"</span>)</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(studs)</span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>studs</span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"./data/stud_vektor.RData"</span>) <span class="co"># studs is back with the same object name</span></span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>studs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This also works for multiple Objects:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(studs,profs, <span class="at">file =</span> <span class="st">"./data/meine_vektoren.RData"</span>)</span>
-<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(studs,profs)</span>
-<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>studs</span>
-<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a>profs</span>
-<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"./data/meine_vektoren.RData"</span>) <span class="co"># studs &amp; profs restored with the same name</span></span>
-<span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a>studs</span>
-<span id="cb112-7"><a href="#cb112-7" aria-hidden="true" tabindex="-1"></a>profs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(studs,profs, <span class="at">file =</span> <span class="st">"./data/meine_vektoren.RData"</span>)</span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(studs,profs)</span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>studs</span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>profs</span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"./data/meine_vektoren.RData"</span>) <span class="co"># studs &amp; profs restored with the same name</span></span>
+<span id="cb114-6"><a href="#cb114-6" aria-hidden="true" tabindex="-1"></a>studs</span>
+<span id="cb114-7"><a href="#cb114-7" aria-hidden="true" tabindex="-1"></a>profs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="ue_5" class="level3" data-number="2.9.1">
 <h3 data-number="2.9.1" class="anchored" data-anchor-id="ue_5"><span class="header-section-number">2.9.1</span> <a href="#data5">Exercise</a></h3>
@@ -2179,31 +2217,31 @@ also imports files from newer Stata versions</td>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># csv file</span></span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">"Dateiname.csv"</span>,<span class="at">sep =</span> <span class="st">";"</span>)</span>
-<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rdata</span></span>
-<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"Dateiname.Rdata"</span>)</span>
-<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a><span class="co"># large csv</span></span>
-<span id="cb113-8"><a href="#cb113-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vroom)</span>
-<span id="cb113-9"><a href="#cb113-9" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">vroom</span>(<span class="at">file =</span> <span class="st">"Dateiname.csv"</span>,<span class="at">delim =</span> <span class="st">";"</span>)</span>
-<span id="cb113-10"><a href="#cb113-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-11"><a href="#cb113-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Stata dta</span></span>
-<span id="cb113-12"><a href="#cb113-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb113-13"><a href="#cb113-13" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="at">file =</span> <span class="st">"Dateiname.dta"</span>)</span>
-<span id="cb113-14"><a href="#cb113-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-15"><a href="#cb113-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Stata large files</span></span>
-<span id="cb113-16"><a href="#cb113-16" aria-hidden="true" tabindex="-1"></a><span class="co"># faster than read_dta(), but without labels</span></span>
-<span id="cb113-17"><a href="#cb113-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readstata13)</span>
-<span id="cb113-18"><a href="#cb113-18" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read.dta13</span>(<span class="at">file =</span> <span class="st">"Dateiname.dta"</span>,<span class="at">convert.factors =</span> F) </span>
-<span id="cb113-19"><a href="#cb113-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-20"><a href="#cb113-20" aria-hidden="true" tabindex="-1"></a><span class="co"># SPSS sav</span></span>
-<span id="cb113-21"><a href="#cb113-21" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="at">file =</span> <span class="st">"Dateiname.sav"</span>)</span>
-<span id="cb113-22"><a href="#cb113-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-23"><a href="#cb113-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Excel</span></span>
-<span id="cb113-24"><a href="#cb113-24" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">"Dateiname.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"1"</span>)</span>
-<span id="cb113-25"><a href="#cb113-25" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">"Dateiname.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Tabellenblatt1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># csv file</span></span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">"Dateiname.csv"</span>,<span class="at">sep =</span> <span class="st">";"</span>)</span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rdata</span></span>
+<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"Dateiname.Rdata"</span>)</span>
+<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-7"><a href="#cb115-7" aria-hidden="true" tabindex="-1"></a><span class="co"># large csv</span></span>
+<span id="cb115-8"><a href="#cb115-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vroom)</span>
+<span id="cb115-9"><a href="#cb115-9" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">vroom</span>(<span class="at">file =</span> <span class="st">"Dateiname.csv"</span>,<span class="at">delim =</span> <span class="st">";"</span>)</span>
+<span id="cb115-10"><a href="#cb115-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-11"><a href="#cb115-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Stata dta</span></span>
+<span id="cb115-12"><a href="#cb115-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb115-13"><a href="#cb115-13" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="at">file =</span> <span class="st">"Dateiname.dta"</span>)</span>
+<span id="cb115-14"><a href="#cb115-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-15"><a href="#cb115-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Stata large files</span></span>
+<span id="cb115-16"><a href="#cb115-16" aria-hidden="true" tabindex="-1"></a><span class="co"># faster than read_dta(), but without labels</span></span>
+<span id="cb115-17"><a href="#cb115-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readstata13)</span>
+<span id="cb115-18"><a href="#cb115-18" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read.dta13</span>(<span class="at">file =</span> <span class="st">"Dateiname.dta"</span>,<span class="at">convert.factors =</span> F) </span>
+<span id="cb115-19"><a href="#cb115-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-20"><a href="#cb115-20" aria-hidden="true" tabindex="-1"></a><span class="co"># SPSS sav</span></span>
+<span id="cb115-21"><a href="#cb115-21" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="at">file =</span> <span class="st">"Dateiname.sav"</span>)</span>
+<span id="cb115-22"><a href="#cb115-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-23"><a href="#cb115-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Excel</span></span>
+<span id="cb115-24"><a href="#cb115-24" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">"Dateiname.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"1"</span>)</span>
+<span id="cb115-25"><a href="#cb115-25" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">"Dateiname.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Tabellenblatt1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2263,19 +2301,19 @@ also imports files from newer Stata versions</td>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rdata</span></span>
-<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(dat1,<span class="at">file =</span> <span class="st">"Dateiname.Rdata"</span>)</span>
-<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="co"># csv</span></span>
-<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dat1,<span class="at">file =</span> <span class="st">"Dateiname.csv"</span>,<span class="at">sep =</span> <span class="st">";"</span>,<span class="at">row.names =</span> F)</span>
-<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dta</span></span>
-<span id="cb114-6"><a href="#cb114-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb114-7"><a href="#cb114-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_dta</span>(dat1,<span class="at">path =</span> <span class="st">"Dateiname.dta"</span>)</span>
-<span id="cb114-8"><a href="#cb114-8" aria-hidden="true" tabindex="-1"></a><span class="co"># sav</span></span>
-<span id="cb114-9"><a href="#cb114-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb114-10"><a href="#cb114-10" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sav</span>(dat1,<span class="at">path =</span> <span class="st">"Dateiname.sav"</span>)</span>
-<span id="cb114-11"><a href="#cb114-11" aria-hidden="true" tabindex="-1"></a><span class="co"># xlsx</span></span>
-<span id="cb114-12"><a href="#cb114-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xlsx)</span>
-<span id="cb114-13"><a href="#cb114-13" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(dat1,<span class="at">file =</span> <span class="st">"Dateiname.xlsx"</span>, <span class="at">sheetName =</span> <span class="st">"Tabellenblatt 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rdata</span></span>
+<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(dat1,<span class="at">file =</span> <span class="st">"Dateiname.Rdata"</span>)</span>
+<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="co"># csv</span></span>
+<span id="cb116-4"><a href="#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dat1,<span class="at">file =</span> <span class="st">"Dateiname.csv"</span>,<span class="at">sep =</span> <span class="st">";"</span>,<span class="at">row.names =</span> F)</span>
+<span id="cb116-5"><a href="#cb116-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dta</span></span>
+<span id="cb116-6"><a href="#cb116-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb116-7"><a href="#cb116-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_dta</span>(dat1,<span class="at">path =</span> <span class="st">"Dateiname.dta"</span>)</span>
+<span id="cb116-8"><a href="#cb116-8" aria-hidden="true" tabindex="-1"></a><span class="co"># sav</span></span>
+<span id="cb116-9"><a href="#cb116-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb116-10"><a href="#cb116-10" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sav</span>(dat1,<span class="at">path =</span> <span class="st">"Dateiname.sav"</span>)</span>
+<span id="cb116-11"><a href="#cb116-11" aria-hidden="true" tabindex="-1"></a><span class="co"># xlsx</span></span>
+<span id="cb116-12"><a href="#cb116-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xlsx)</span>
+<span id="cb116-13"><a href="#cb116-13" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(dat1,<span class="at">file =</span> <span class="st">"Dateiname.xlsx"</span>, <span class="at">sheetName =</span> <span class="st">"Tabellenblatt 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2285,16 +2323,16 @@ also imports files from newer Stata versions</td>
 <h2 data-number="2.11" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">2.11</span> Getting help</h2>
 <p>R packages (often) come with very detailed help pages, which can either be called up directly from RStudio:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># help for packages</span></span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"dplyr"</span>)</span>
-<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"rowwise"</span>)</span>
-<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"dplyr"</span>)</span>
-<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">"dplyr"</span>)</span>
-<span id="cb115-7"><a href="#cb115-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-8"><a href="#cb115-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-9"><a href="#cb115-9" aria-hidden="true" tabindex="-1"></a><span class="co"># help for a specific function</span></span>
-<span id="cb115-10"><a href="#cb115-10" aria-hidden="true" tabindex="-1"></a>?<span class="fu">select</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># help for packages</span></span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="at">package =</span> <span class="st">"dplyr"</span>)</span>
+<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"rowwise"</span>)</span>
+<span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">"dplyr"</span>)</span>
+<span id="cb117-7"><a href="#cb117-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-8"><a href="#cb117-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-9"><a href="#cb117-9" aria-hidden="true" tabindex="-1"></a><span class="co"># help for a specific function</span></span>
+<span id="cb117-10"><a href="#cb117-10" aria-hidden="true" tabindex="-1"></a>?<span class="fu">select</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Alternatively, googling the package and function mostly gives you what you need <a href="https://www.google.de/search?q=R+dplyr+select()"><strong>R dplyr select()</strong></a></p>
 <p>Or refer to the CRAN site:</p>
@@ -2317,10 +2355,10 @@ also imports files from newer Stata versions</td>
 <li>Create a <code>data.frame</code> object called <code>dat2</code>:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">studs =</span> <span class="fu">c</span>(<span class="dv">14954</span>,<span class="dv">47269</span> ,<span class="dv">23659</span>,<span class="dv">9415</span> ,<span class="dv">38079</span>), </span>
-<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">profs =</span> <span class="fu">c</span>(<span class="dv">250</span>,<span class="dv">553</span>,<span class="dv">438</span> ,<span class="dv">150</span>,<span class="dv">636</span>),</span>
-<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">prom_recht =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>,<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>),</span>
-<span id="cb116-4"><a href="#cb116-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">gegr  =</span> <span class="fu">c</span>(<span class="dv">1971</span>,<span class="dv">1870</span>,<span class="dv">1457</span>,<span class="dv">1818</span>,<span class="dv">1995</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">studs =</span> <span class="fu">c</span>(<span class="dv">14954</span>,<span class="dv">47269</span> ,<span class="dv">23659</span>,<span class="dv">9415</span> ,<span class="dv">38079</span>), </span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">profs =</span> <span class="fu">c</span>(<span class="dv">250</span>,<span class="dv">553</span>,<span class="dv">438</span> ,<span class="dv">150</span>,<span class="dv">636</span>),</span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">prom_recht =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>,<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>),</span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">gegr  =</span> <span class="fu">c</span>(<span class="dv">1971</span>,<span class="dv">1870</span>,<span class="dv">1457</span>,<span class="dv">1818</span>,<span class="dv">1995</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Do you see <code>dat2</code> in your environment?</li>
@@ -2328,7 +2366,7 @@ also imports files from newer Stata versions</td>
 <li>Add the names of the universities as a new column to the dataset. The names are in this order:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"FH Aachen"</span>,<span class="st">"RWTH Aachen"</span>,<span class="st">"Uni Freiburg"</span>,<span class="st">"Uni Bonn"</span>,<span class="st">"FH Bonn-Rhein-Sieg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"FH Aachen"</span>,<span class="st">"RWTH Aachen"</span>,<span class="st">"Uni Freiburg"</span>,<span class="st">"Uni Bonn"</span>,<span class="st">"FH Bonn-Rhein-Sieg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "FH Aachen"          "RWTH Aachen"        "Uni Freiburg"      
 [4] "Uni Bonn"           "FH Bonn-Rhein-Sieg"</code></pre>
@@ -2364,7 +2402,7 @@ also imports files from newer Stata versions</td>
 <li>Sort the dataset according to the following order. (Create a <code>factor</code> variable that defines this order.)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"RWTH Aachen"</span>, <span class="st">"Uni Freiburg"</span>, <span class="st">"Uni Bonn"</span>, <span class="st">"FH Aachen"</span>, <span class="st">"FH Bonn-Rhein-Sieg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"RWTH Aachen"</span>, <span class="st">"Uni Freiburg"</span>, <span class="st">"Uni Bonn"</span>, <span class="st">"FH Aachen"</span>, <span class="st">"FH Bonn-Rhein-Sieg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "RWTH Aachen"        "Uni Freiburg"       "Uni Bonn"          
 [4] "FH Aachen"          "FH Bonn-Rhein-Sieg"</code></pre>
@@ -2406,68 +2444,68 @@ also imports files from newer Stata versions</td>
 <p>Besides setting up a project, you can also set the path using <code>setwd()</code> or directly specify it within <code>read_dta()</code> or other <code>read...()</code> commands. However, this approach is less portable to other machines. When someone else opens the <code>.Rproj</code> file, R automatically sets paths relative to the file’s location. This is also true if the directory is moved on your device—R will automatically adjust the working directory.</p>
 <p>To set the working directory with <code>setwd()</code>, insert the folder path within the parentheses. Make sure to replace any <code>\</code> with <code>/</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"D:/Kurse/R_IAB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"D:/Kurse/R_IAB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can check if it worked with <code>getwd()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The path you set with <code>setwd()</code> should appear.</p>
 <p>Alternatively, you can provide the full path directly in <code>read_dta()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>pend <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"C:/Kurse/R_IAB/orig/PENDDAT_cf_W13.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>pend <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"C:/Kurse/R_IAB/orig/PENDDAT_cf_W13.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="selfiltbase" class="level3" data-number="2.13.2">
 <h3 data-number="2.13.2" class="anchored" data-anchor-id="selfiltbase"><span class="header-section-number">2.13.2</span> Selecting Rows &amp; Columns Without <code>{dplyr}</code></h3>
 <p>Base R (without extensions like <code>{dplyr}</code>) can also filter datasets using square brackets <code>[]</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>dat1[<span class="dv">1</span>, <span class="dv">1</span>] <span class="co"># first row, first column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>dat1[<span class="dv">1</span>, <span class="dv">1</span>] <span class="co"># first row, first column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19173</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>dat1[<span class="dv">1</span>, ]  <span class="co"># first row, all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>dat1[<span class="dv">1</span>, ]  <span class="co"># first row, all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  studs profs gegr stu_prof        uni    uni_fct gegr_fct
 1 19173   322 1971 59.54348 Uni Bremen Uni Bremen      70s</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>dat1[, <span class="dv">1</span>]  <span class="co"># all rows, first column (equivalent to dat1$studs)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>dat1[, <span class="dv">1</span>]  <span class="co"># all rows, first column (equivalent to dat1$studs)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19173  5333 15643</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>dat1[, <span class="st">"studs"</span>] <span class="co"># all rows, column named studs -&gt; note the ""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>dat1[, <span class="st">"studs"</span>] <span class="co"># all rows, column named studs -&gt; note the ""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19173  5333 15643</code></pre>
 </div>
 </div>
 <p>You can also select multiple rows or columns by using <code>c()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>dat1[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), ]  <span class="do">## 1st &amp; 2nd row, all columns</span></span>
-<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>dat1[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]  <span class="do">## all rows, 1st &amp; 3rd column (equivalent to dat1$studs &amp; dat1$stu_prof)</span></span>
-<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a>dat1[, <span class="fu">c</span>(<span class="st">"studs"</span>, <span class="st">"uni"</span>)] <span class="do">## all rows, columns named studs and uni</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>dat1[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), ]  <span class="do">## 1st &amp; 2nd row, all columns</span></span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a>dat1[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]  <span class="do">## all rows, 1st &amp; 3rd column (equivalent to dat1$studs &amp; dat1$stu_prof)</span></span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a>dat1[, <span class="fu">c</span>(<span class="st">"studs"</span>, <span class="st">"uni"</span>)] <span class="do">## all rows, columns named studs and uni</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can also write conditions in these square brackets to make selections from <code>dat1</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="co"># full dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="co"># full dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  studs profs gegr stu_prof           uni       uni_fct gegr_fct
 1 19173   322 1971 59.54348    Uni Bremen    Uni Bremen      70s
 2  5333    67 1830 79.59701    Uni Vechta    Uni Vechta    early
 3 15643   210 1973 74.49048 Uni Oldenburg Uni Oldenburg      70s</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>dat1[dat1<span class="sc">$</span>uni <span class="sc">==</span> <span class="st">"Uni Oldenburg"</span>, ] <span class="co"># Rows where uni equals "Uni Oldenburg", all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>dat1[dat1<span class="sc">$</span>uni <span class="sc">==</span> <span class="st">"Uni Oldenburg"</span>, ] <span class="co"># Rows where uni equals "Uni Oldenburg", all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  studs profs gegr stu_prof           uni       uni_fct gegr_fct
 3 15643   210 1973 74.49048 Uni Oldenburg Uni Oldenburg      70s</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>dat1<span class="sc">$</span>studs[dat1<span class="sc">$</span>uni <span class="sc">==</span> <span class="st">"Uni Oldenburg"</span>] <span class="co"># Just check the student count: no comma needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>dat1<span class="sc">$</span>studs[dat1<span class="sc">$</span>uni <span class="sc">==</span> <span class="st">"Uni Oldenburg"</span>] <span class="co"># Just check the student count: no comma needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15643</code></pre>
 </div>
 </div>
 <p>This works as expected, and we can expand it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>dat1[dat1<span class="sc">$</span>uni <span class="sc">==</span> <span class="st">"Uni Oldenburg"</span> <span class="sc">&amp;</span> dat1<span class="sc">$</span>studs <span class="sc">&gt;</span> <span class="dv">10000</span>, ] <span class="co"># &amp; means AND</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>dat1[dat1<span class="sc">$</span>uni <span class="sc">==</span> <span class="st">"Uni Oldenburg"</span> <span class="sc">&amp;</span> dat1<span class="sc">$</span>studs <span class="sc">&gt;</span> <span class="dv">10000</span>, ] <span class="co"># &amp; means AND</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  studs profs gegr stu_prof           uni       uni_fct gegr_fct
 3 15643   210 1973 74.49048 Uni Oldenburg Uni Oldenburg      70s</code></pre>
@@ -2475,7 +2513,7 @@ also imports files from newer Stata versions</td>
 </div>
 <p>You can also use the OR operator:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>dat1[dat1<span class="sc">$</span>uni <span class="sc">==</span> <span class="st">"Uni Oldenburg"</span> <span class="sc">|</span> dat1<span class="sc">$</span>studs <span class="sc">&gt;</span> <span class="dv">10000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a>dat1[dat1<span class="sc">$</span>uni <span class="sc">==</span> <span class="st">"Uni Oldenburg"</span> <span class="sc">|</span> dat1<span class="sc">$</span>studs <span class="sc">&gt;</span> <span class="dv">10000</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  studs profs gegr stu_prof           uni       uni_fct gegr_fct
 1 19173   322 1971 59.54348    Uni Bremen    Uni Bremen      70s
@@ -2487,33 +2525,33 @@ also imports files from newer Stata versions</td>
 <h3 data-number="2.13.3" class="anchored" data-anchor-id="select-vs"><span class="header-section-number">2.13.3</span> <code>select()</code> vs <code>$</code></h3>
 <p>When you use <code>select()</code> to pick a specific variable, it preserves the data structure as a <code>data.frame()</code>, whereas <code>dat1$variablename</code> extracts the column as a vector (a series of values):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a>dat1<span class="sc">$</span>studs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a>dat1<span class="sc">$</span>studs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19173  5333 15643</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dat1<span class="sc">$</span>studs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dat1<span class="sc">$</span>studs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>dat1<span class="sc">$</span>studs <span class="sc">/</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>dat1<span class="sc">$</span>studs <span class="sc">/</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 958.65 266.65 782.15</code></pre>
 </div>
 </div>
 <p><code>select()</code> keeps the values as a column in a <code>data.frame</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(studs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(studs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  studs
 1 19173
 2  5333
 3 15643</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(studs) <span class="sc">%&gt;%</span> <span class="fu">class</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(studs) <span class="sc">%&gt;%</span> <span class="fu">class</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data.frame"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(studs) <span class="sc">/</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(studs) <span class="sc">/</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   studs
 1 958.65

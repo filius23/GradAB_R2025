@@ -593,7 +593,7 @@ This has the disadvantage that you might overwrite packages when working on diff
 In the worst case, you could break code from older projects when updating to a newer version of a package.
 You'll have to track down the original package version when you're trying to re-run code from the older project.  
 
-⚠️ This can be extremely painful and make you question what life decisions brought you here. ⚠️
+`r emoji::emoji_name["warning"]` This can be extremely painful and make you question what life decisions brought you here.
 
 Therefore, I recommend setting up a **project-specific** `.RProfile` for projects that require reprodicibility:  
 
