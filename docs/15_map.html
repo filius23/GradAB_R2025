@@ -329,7 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6  06 0.067</code></pre>
 </div>
 </div>
-<p>We can now join the <code>alo_df</code> data to the <code>lan17</code> shapefile using a <a href="05_merge_pivot.html#join"><code>left_join()</code></a>.</p>
+<p>We can now join the <code>alo_df</code> data to the <code>lan17</code> shapefile using a <a href="#join"><code>left_join()</code></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lan17 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(GF<span class="sc">==</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(alo_df,<span class="at">by =</span> <span class="fu">join_by</span>(<span class="st">"AGS"</span><span class="sc">==</span><span class="st">"ags"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

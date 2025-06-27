@@ -280,7 +280,9 @@ pend_ue08 <- haven::read_dta("./orig/PENDDAT_cf_W13.dta") %>%
 ### Regression model {#reg1}
 
 + Create an object `mod1` with a linear regression model (`lm`) where `netges` (monthly net income in EUR) is the dependent variable and `azges1` (working hours) is the independent variable! (see [here](#lm1))
-+ Examine the results of `mod1` - what can you infer about the relationship between `netges` and `azges1`?
+<!-- + Examine the results of `mod1` - what can you infer about the relationship between `netges` and `azges1`? -->
++ Create a regression table using `{modelsummary}` (remember to `fdz_install()` the package for first usage) and export it as a `docx` oder `tex` file!
+
 
 ### Categorical Independent Variables {#reg3}
 
